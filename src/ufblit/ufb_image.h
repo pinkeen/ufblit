@@ -5,12 +5,12 @@
 
 typedef struct
 {
-	UFBuint8 bytesPerPixel;
-	UFBsize stride;
-	UFBsize size;
-	UFBuint16 w;
-	UFBuint16 h;
-	void *pixels;
+    UFBuint8 bytesPerPixel;
+    UFBsize stride;
+    UFBsize size;
+    UFBuint16 w;
+    UFBuint16 h;
+    void *pixels;
 } UFB_Image;
 
 UFB_Image *UFB_CreateImage(UFBuint16 w, UFBuint16 h, UFBbool withAlpha);

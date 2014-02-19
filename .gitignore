@@ -1,20 +1,13 @@
-# Object files
 *.o
-*.ko
-
-# Libraries
+*.os
 *.lib
 *.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
 *.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-
 *~
+*.x
+*.kate-swp
+.sconf_temp
+.sconsign.dblite
+config.log
+
+

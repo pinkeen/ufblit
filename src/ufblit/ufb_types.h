@@ -38,32 +38,32 @@ typedef UFBuint8 UFBbool;
 
 typedef enum
 {
-	UFB_IT_UNKNOWN,
-	UFB_IT_TGA,
-	UFB_IT_PNG,
-	UFB_IT_JPEG
+    UFB_IT_UNKNOWN,
+    UFB_IT_TGA,
+    UFB_IT_PNG,
+    UFB_IT_JPEG
 } UFB_ImageType;
 
 typedef struct __attribute__((__packed__))
 {
-	UFBuint8 r;
-	UFBuint8 g;
-	UFBuint8 b;
-	UFBuint8 a;
+    UFBuint8 r;
+    UFBuint8 g;
+    UFBuint8 b;
+    UFBuint8 a;
 } UFB_RGBA8888;
 
 typedef struct __attribute__((__packed__))
 {
-	UFBuint16 rgb;
-	UFBuint8 a;
+    UFBuint16 rgb;
+    UFBuint8 a;
 } UFB_RGBA5658;
 
 typedef struct
 {
-	UFBint16 x;
-	UFBint16 y;
-	UFBint16 w;
-	UFBint16 h;
+    UFBint16 x;
+    UFBint16 y;
+    UFBint16 w;
+    UFBint16 h;
 } UFB_Rect;
 
 

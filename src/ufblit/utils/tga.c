@@ -34,90 +34,90 @@ typedef struct __attribute__((__packed__))
 
 TGA_Image TGA_LoadFromFile(const char *filename)
 {
-	TGA_Image image;
-	TGA_Header header;
-	unsigned int bytesPerPixel;
-	unsigned int imageSize;
-	unsigned int temp;
+    TGA_Image image;
+    TGA_Header header;
+    unsigned int bytesPerPixel;
+    unsigned int imageSize;
+    unsigned int temp;
 
-	image.error = 0;
-	FILE *file = fopen(filename, "rb");
+    image.error = 0;
+    FILE *file = fopen(filename, "rb");
 
-	if(file == NULL)
-	{
-		image.error = 1;
-		fprintf(stderr, "[TGA] Error opening file %s\n", filename);
-		return image;
-	}
+    if(file == NULL)
+    {
+        image.error = 1;
+        fprintf(stderr, "[TGA] Error opening file %s\n", filename);
+        return image;
+    }
 
-	if(fread(&header, 1, sizeof(TGA_Header), file) != sizeof(TGA_Header))
-	{
-		fclose(file);
-		image.error = 1;
-		fprintf(stderr, "[TGA] Could not read header magic in %s\n", filename);
-		return image;
-	}
+    if(fread(&header, 1, sizeof(TGA_Header), file) != sizeof(TGA_Header))
+    {
+        fclose(file);
+        image.error = 1;
+        fprintf(stderr, "[TGA] Could not read header magic in %s\n", filename);
+        return image;
+    }
 
 
-	if(header.identsize != 0 || header.colourmaptype != 0 || header.imagetype != 2)
-	{
-		fclose(file);
-		image.error = 1;
-		fprintf(stderr, "[TGA] Unsupported format in %s\n", filename);
-		return image;
-	}
+    if(header.identsize != 0 || header.colourmaptype != 0 || header.imagetype != 2)
+    {
+        fclose(file);
+        image.error = 1;
+        fprintf(stderr, "[TGA] Unsupported format in %s\n", filename);
+        return image;
+    }
 
-	image.width  = header.width;
-	image.height = header.height;
+    image.width  = header.width;
+    image.height = header.height;
 
-	if(header.bits != 24 && header.bits != 32)
-	{
-		fclose(file);
-		image.error = 1;
-		fprintf(stderr, "[TGA] Unsupported bpp (%u) in %s\n", header.bits, filename);
-		return image;
-	}
+    if(header.bits != 24 && header.bits != 32)
+    {
+        fclose(file);
+        image.error = 1;
+        fprintf(stderr, "[TGA] Unsupported bpp (%u) in %s\n", header.bits, filename);
+        return image;
+    }
 
-	if((image.width <= 0) || (image.height <= 0))
-	{
-		fclose(file);
-		image.error = 1;
-		fprintf(stderr, "[TGA] Bad width in %s\n", filename);
-		return image;
-	}
+    if((image.width <= 0) || (image.height <= 0))
+    {
+        fclose(file);
+        image.error = 1;
+        fprintf(stderr, "[TGA] Bad width in %s\n", filename);
+        return image;
+    }
 
-	image.bpp = header.bits;
-	bytesPerPixel = image.bpp / 8;
-	imageSize = image.width * image.height * bytesPerPixel;
-	image.data = (unsigned char*)malloc(imageSize);
-	image.xorigin = header.xstart;
-	image.yorigin = header.ystart;
+    image.bpp = header.bits;
+    bytesPerPixel = image.bpp / 8;
+    imageSize = image.width * image.height * bytesPerPixel;
+    image.data = (unsigned char*)malloc(imageSize);
+    image.xorigin = header.xstart;
+    image.yorigin = header.ystart;
 
-	if((image.data == NULL) || (fread(image.data, 1, imageSize, file) != imageSize))
-	{
-		if(image.data != NULL)
-			free(image.data);
+    if((image.data == NULL) || (fread(image.data, 1, imageSize, file) != imageSize))
+    {
+        if(image.data != NULL)
+            free(image.data);
 
-		fclose(file);
+        fclose(file);
 
-		image.error = 1;
+        image.error = 1;
 
-		fprintf(stderr, "[TGA] Error allocating/reading data %s\n", filename);
+        fprintf(stderr, "[TGA] Error allocating/reading data %s\n", filename);
 
-		return image;
-	}
+        return image;
+    }
 
-	unsigned int i;
+    unsigned int i;
 
-	for(i = 0; i < imageSize; i += bytesPerPixel)
-	{
-		temp = image.data[i];
-		image.data[i] = image.data[i + 2];
-		image.data[i + 2] = temp;
-	}
+    for(i = 0; i < imageSize; i += bytesPerPixel)
+    {
+        temp = image.data[i];
+        image.data[i] = image.data[i + 2];
+        image.data[i + 2] = temp;
+    }
 
-	fclose (file);
+    fclose (file);
 
-	return image;
+    return image;
 }
 
