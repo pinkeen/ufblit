@@ -1,0 +1,156 @@
+'''
+    UltraFastBlit scons build script.
+    2010 (c) Filip Sobalski <pinkeen@gmail.com>
+'''
+
+import string
+import sys
+import os
+
+AddOption('--debug-build', dest='debug', action='store_true', help='build with debug symbols', default=False)
+AddOption('--static-library', dest='static', action='store_true', help='build static library', default=False)
+AddOption('--dingux', dest='dingux', action='store_true', help='cross compile for dingux using BooBoo\'s SDK', default=False)
+
+if not 'DINGUXSDK' in os.environ and not GetOption('help'):
+	sys.stderr.write("DINGUXSDK environment variable is not defined!")
+	Exit(1)
+
+dingux = {}
+dingux['ARCH'] = 'mipsel-linux-uclibc-'
+dingux['SDKPATH'] = os.environ['DINGUXSDK']
+dingux['BINPATH'] = '%s/bin' % (dingux['SDKPATH'])
+dingux['LIBPATH'] = '%s/lib' % (dingux['SDKPATH'])
+dingux['USRPATH'] = '%s/usr' % (dingux['SDKPATH'])
+dingux['CC'] = '%s/bin/%sgcc' % (dingux['USRPATH'], dingux['ARCH'])
+dingux['CPP'] = '%s/bin/%sg++' % (dingux['USRPATH'], dingux['ARCH'])
+
+dingux['LIBPATH'] = []
+dingux['LIBPATH'].append('%s/lib' % (dingux['SDKPATH']))
+dingux['LIBPATH'].append('%s/lib' % (dingux['USRPATH']))
+
+dingux['INCPATH'] = []
+dingux['INCPATH'].append('%s/include' % (dingux['SDKPATH']))
+dingux['INCPATH'].append('%s/include' % (dingux['USRPATH']))
+
+
+dinguxFlags = ['-finline-functions', '-fomit-frame-pointer', 
+'-msoft-float', '-fno-builtin', '-fno-exceptions', '-mips32', '-fno-pic', '-G0']
+prdFlags = ['-O3']
+dbgFlags = ['-g', '-O0', '-Wall']
+
+depends = []
+depends.append({'name': 'SDL', 'headers': ['SDL/SDL.h']})
+depends.append({'name': 'SDL_image', 'headers': ['SDL/SDL_image.h']})
+depends.append({'name': 'm', 'headers': ['math.h']})
+
+libs = map(lambda x: x['name'], depends)
+
+libName = 'ufblit'
+cc = 'gcc'
+cpp = 'g++'
+libDirs = ['ufblit', 'ufblit/utils']
+examples = ['sdl_std', 'test', 'sdl', 'fb']
+
+incPath = ['.']
+libPath = ['.']
+
+flags = prdFlags
+
+if GetOption('debug'):
+	flags = dbgFlags
+
+if GetOption('dingux'):
+	incPath.extend(dingux['INCPATH'])
+	libPath.extend(dingux['LIBPATH'])
+	cc = dingux['CC']
+	cpp = dingux['CPP']
+	flags.append('-DDINGOO')
+	flags.extend(dinguxFlags)
+	
+
+def checkDeps(deps):
+    if GetOption('clean') or GetOption('help'):
+        return
+
+    ok = True
+    
+    for dep in deps:
+	env = Environment(CC = cc, CCFLAGS = flags, CPPPATH = incPath, LIBPATH = libPath)
+        conf = Configure(env)
+        if not conf.CheckLibWithHeader(dep['name'], dep['headers'], 'c'):
+            ok = False
+        env = conf.Finish()
+   
+    if not ok:
+        sys.stderr.write("Dependecies are missing. Exiting...\n")
+        Exit(1)
+
+
+
+def globDirs(dirs):
+    sources = []
+
+    for d in dirs:
+        sources = sources + Glob(d + '/*.c')
+
+    return sources
+
+
+
+def buildExample(name, theLib, env = None):
+
+	sources = globDirs(['examples/' + name])
+
+	env = Environment(CC = cc, CCFLAGS = flags, LIBS = [theLib], CPPPATH=incPath, LIBPATH=libPath)
+    
+	if GetOption('static'):
+		env.Append(LIBS = libs)
+
+	prgPath = 'examples/' + name + '/' + name
+
+	if GetOption('dingux'):
+		prgPath += '.dge'
+
+	prg = env.Program(prgPath, sources)
+	env.Depends(prg, theLib)
+
+	return prg
+
+
+def buildLib():
+
+	sources = globDirs(libDirs)
+	env = Environment(CC = cc, CCFLAGS = flags, LIBS = libs, CCPATH=incPath, LIBPATH=libPath)
+
+	name = libName
+
+	if GetOption('dingux'):
+		name += '-dgx'
+	
+	if GetOption('static'):
+		lib = env.StaticLibrary(name, sources)
+	else:
+		lib = env.SharedLibrary(name, sources)
+    
+	return lib
+
+checkDeps(depends)
+
+lib = buildLib()
+
+exm = []
+for e in examples:
+    exm = exm + buildExample(e, lib)
+
+Alias('lib', lib)
+Alias(libName, lib)
+Alias('examples', exm)
+Alias('all', lib + exm)
+
+Default('all')
+
+
+
+
+
+

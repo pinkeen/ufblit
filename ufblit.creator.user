@@ -1,0 +1,166 @@
+<!DOCTYPE QtCreatorProject>
+<qtcreator>
+ <data>
+  <variable>GenericProjectManager.GenericProject.Toolchain</variable>
+  <value type="int">0</value>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.ActiveTarget</variable>
+  <value type="int">0</value>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.EditorSettings</variable>
+  <valuemap type="QVariantMap">
+   <value key="EditorConfiguration.Codec" type="QByteArray">UTF-8</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.Target.0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Desktop</value>
+   <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">GenericProjectManager.GenericTarget</value>
+   <value key="ProjectExplorer.Target.ActiveBuildConfiguration" type="int">0</value>
+   <value key="ProjectExplorer.Target.ActiveRunConfiguration" type="int">3</value>
+   <valuemap key="ProjectExplorer.Target.BuildConfiguration.0" type="QVariantMap">
+    <value key="GenericProjectManager.GenericBuildConfiguration.BuildDirectory" type="QString">/home/dsh/ufblit_svn</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.0" type="QVariantMap">
+     <valuelist key="ProjectExplorer.ProcessStep.Arguments" type="QVariantList">
+      <value type="QString">--static-library</value>
+      <value type="QString">--debug-build</value>
+      <value type="QString">all</value>
+     </valuelist>
+     <value key="ProjectExplorer.ProcessStep.Command" type="QString">scons</value>
+     <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">true</value>
+     <value key="ProjectExplorer.ProcessStep.WorkingDirectory" type="QString">$BUILDDIR</value>
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">static debug</value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.ProcessStep</value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">1</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
+     <valuelist key="ProjectExplorer.ProcessStep.Arguments" type="QVariantList">
+      <value type="QString">--static-library</value>
+      <value type="QString">--debug-build</value>
+      <value type="QString">all</value>
+      <value type="QString">-c</value>
+     </valuelist>
+     <value key="ProjectExplorer.ProcessStep.Command" type="QString">scons</value>
+     <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">true</value>
+     <value key="ProjectExplorer.ProcessStep.WorkingDirectory" type="QString">$BUILDDIR</value>
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">clean static debug</value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.ProcessStep</value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.CleanStepsCount" type="int">1</value>
+    <value key="ProjectExplorer.BuildConfiguration.ClearSystemEnvironment" type="bool">false</value>
+    <valuelist key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">debug-static</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">GenericProjectManager.GenericBuildConfiguration</value>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.BuildConfiguration.1" type="QVariantMap">
+    <value key="GenericProjectManager.GenericBuildConfiguration.BuildDirectory" type="QString">/home/dsh/ufblit_svn</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.0" type="QVariantMap">
+     <valuelist key="ProjectExplorer.ProcessStep.Arguments" type="QVariantList">
+      <value type="QString">--static-library</value>
+      <value type="QString">--debug-build</value>
+      <value type="QString">--dingux</value>
+      <value type="QString">all</value>
+     </valuelist>
+     <value key="ProjectExplorer.ProcessStep.Command" type="QString">scons</value>
+     <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">true</value>
+     <value key="ProjectExplorer.ProcessStep.WorkingDirectory" type="QString">$BUILDDIR</value>
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">dingux static debug</value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.ProcessStep</value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">1</value>
+    <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
+     <valuelist key="ProjectExplorer.ProcessStep.Arguments" type="QVariantList">
+      <value type="QString">--static-library</value>
+      <value type="QString">--debug-build</value>
+      <value type="QString">--dingux</value>
+      <value type="QString">all</value>
+      <value type="QString">-c</value>
+     </valuelist>
+     <value key="ProjectExplorer.ProcessStep.Command" type="QString">scons</value>
+     <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">true</value>
+     <value key="ProjectExplorer.ProcessStep.WorkingDirectory" type="QString">$BUILDDIR</value>
+     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">dingux clean static debug</value>
+     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.ProcessStep</value>
+    </valuemap>
+    <value key="ProjectExplorer.BuildConfiguration.CleanStepsCount" type="int">1</value>
+    <value key="ProjectExplorer.BuildConfiguration.ClearSystemEnvironment" type="bool">false</value>
+    <valuelist key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">dingux-debug-static</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">GenericProjectManager.GenericBuildConfiguration</value>
+   </valuemap>
+   <value key="ProjectExplorer.Target.BuildConfigurationCount" type="int">2</value>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.0" type="QVariantMap">
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString"></value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString"></value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">false</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">$BUILDDIR</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Własny plik wykonywalny</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.1" type="QVariantMap">
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString">/home/dsh/ufblit_svn/bin/examples/sdl_std/sdl_std</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString">sdl_std</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">true</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">/home/dsh/ufblit_svn/bin/examples/sdl_std</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">sdl_std</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.2" type="QVariantMap">
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString">/home/dsh/ufblit_svn/bin/examples/test/test</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString">test</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">true</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">$BUILDDIR</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">test</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.3" type="QVariantMap">
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString">/home/dsh/ufblit_svn/bin/examples/sdl/sdl</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString">sdl</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">true</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">/home/dsh/ufblit_svn/bin/examples/sdl</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">sdl</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
+   </valuemap>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.4" type="QVariantMap">
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString">/home/dsh/ufblit_svn/bin/examples/fb/fb</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
+    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString">fb</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">true</value>
+    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">/home/dsh/ufblit_svn/bin/examples/fb</value>
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">fb</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
+   </valuemap>
+   <value key="ProjectExplorer.Target.RunConfigurationCount" type="int">5</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.TargetCount</variable>
+  <value type="int">1</value>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
+  <value type="int">4</value>
+ </data>
+</qtcreator>
